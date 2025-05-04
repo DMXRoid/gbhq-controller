@@ -12,8 +12,8 @@
 #define WIFI_MODE_SOFT_AP 2
 #define WIFI_MODE_DUAL 3
 
-#define WIFI_SSID ""
-#define WIFI_PASSWORD ""
+#define WIFI_SSID "bearony"
+#define WIFI_PASSWORD "bloodyshits"
 
 
 #define LOG_FILE "/logs.txt"
@@ -31,6 +31,23 @@
 #define SPEAKER_OUT 9
 #define FRONT_LIGHTS 10
 
+
+#define I2C_SDA 21
+#define I2C_SCL 22
+
+#define MCP23017_PORT_A 0x00
+#define MCP23017_PORT_B 0x01
+
+#define MCP23017_PIN_LOW 0x00
+#define MCP23017_PIN_HIGH 0xFF
+
+#define MCP23017_HIGH 0xFF
+#define MCP23017_LOW 0x00
+
+#define PIN_TYPE_NATIVE 0
+#define PIN_TYPE_I2C 1
+
+#define CONTACT_SENSOR_PIN T0
 
 extern JsonDocument config;
 

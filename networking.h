@@ -3,7 +3,6 @@
 #include <WiFiUdp.h>
 #include <ArduinoJson.h>
 #include <ArduinoOTA.h>
-#include <ArduinoHttpClient.h>
 
 class WiFi {
 	public:

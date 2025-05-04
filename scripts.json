@@ -1,0 +1,78 @@
+{
+	"action": "save-scripts",
+	"scripts": {
+		"test": [
+			{"target": "ghostbusters-theme*", "action": "on", "delay": 1000, "target_type": 1 },
+			{"target": "third_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "third_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "third_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "third_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			
+			{"target": "slimer", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "slimer", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "blue_ghost", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "blue_ghost", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "pink_ghost", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "pink_ghost", "action": "off", "delay": 1000, "target_type": 0 },
+
+			{"target": "red_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "red_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "yellow_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "yellow_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "green_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+			{"target": "green_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "ghostbusters-theme*", "action": "off", "delay": 1000, "target_type": 1 }
+			
+		],
+		"all-on": [
+			
+				{"target": "ghostbusters-theme*", "action": "on", "delay": 1000, "target_type": 1 },
+				{"target": "third_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+				
+				{"target": "third_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "second_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "second_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "first_floor_left_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "first_floor_right_light", "action": "on", "delay": 1000, "target_type": 0 },
+				
+				{"target": "slimer", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "blue_ghost", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "pink_ghost", "action": "on", "delay": 1000, "target_type": 0 },
+				
+				{"target": "red_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "yellow_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "green_traffic_light", "action": "on", "delay": 1000, "target_type": 0 },
+				{"target": "ghostbusters-theme*", "action": "on", "delay": 1000, "target_type": 1 }
+				
+		],
+		"all-off": [
+			
+			{"target": "ghostbusters-theme*", "action": "off", "delay": 1000, "target_type": 1 },
+			{"target": "third_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			
+			{"target": "third_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "second_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_left_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "first_floor_right_light", "action": "off", "delay": 1000, "target_type": 0 },
+			
+			{"target": "slimer", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "blue_ghost", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "pink_ghost", "action": "off", "delay": 1000, "target_type": 0 },
+			
+			{"target": "red_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "yellow_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "green_traffic_light", "action": "off", "delay": 1000, "target_type": 0 },
+			{"target": "ghostbusters-theme*", "action": "off", "delay": 1000, "target_type": 1 }
+			
+	]
+	}
+}

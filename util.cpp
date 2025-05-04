@@ -1,19 +1,22 @@
+#include "FS.h"
 #include "LittleFS.h"
 #include "config.h"
 #include "util.h"
-File logFile; 
+
 
 void log(String l) {
 	Serial.println(l);
+	File logFile = LittleFS.open(LOG_FILE, FILE_APPEND);
 	if(logFile) {
 		if (logFile.size() > 15000) { 
 			logFile.close();
-			initLogs();
+			logFile = LittleFS.open(LOG_FILE, FILE_WRITE);
 		}
 		int b = logFile.println(l);
 		if(!b) {
 			Serial.println("Could not write to log file.	Log line: " + l);
 		}
+		logFile.close();
 	}
 	else {
 		Serial.println("Could not open log file. Log line: " + l);
@@ -27,34 +30,17 @@ void initFS() {
 	else {
 		log("Filesystem mounting failed");
 	}
-	
-}
-
-
-
-void initLogs() {
-	// truncate the log file
-	logFile = LittleFS.open(LOG_FILE, "w+");
-	if(!logFile) {
-		Serial.println("Couldn't create log file");
-		Serial.println("Trying to format...");
-		if(LittleFS.format()) {
-			initLogs();
-		}
-	}
 }
 
 String getFileContents(String fileName) {
 	String c;
 	File f;
 	
-	f = LittleFS.open(fileName, "r");
+	f = LittleFS.open(fileName, FILE_READ);
 	
 	if(f) {
 		c = f.readString();
-		if (fileName != LOG_FILE) {
-			f.close();
-		}
+		f.close();
 	}
 	else {
 		log("Couldn't open file: " + fileName);

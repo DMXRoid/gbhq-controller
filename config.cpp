@@ -8,10 +8,11 @@ String initialConfig = R"(
 	{
 		"wifi": {
 			"mode": 1,
-			"ssid": "",
+			"ssid": "bearony",
 			"password": "",
 			"pk": ""
 		},
+		"data_pin": 1,
 		"mdns_name": "gbhq",
 		"ip_address": "0.0.0.0",
 		"mac_address": ""

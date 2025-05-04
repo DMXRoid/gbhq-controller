@@ -3,15 +3,17 @@
 #include "util.h"
 #include "http.h"
 #include "audio.h"
+#include "servo.h"
 #include "gbhq.h"
 
 void initAll() {
 	initFS();
-	initLogs();
 	initConfig();
 	initNetworking();
 	getHttpServer()->init();
 	initAudio();
+	initI2C();
+	initServos();
 	initGBHQ();
 }
 
@@ -26,5 +28,6 @@ void loop() {
   getHttpServer()->loop();
   getAudioController()->loop();
   getGBHQController()->loop();
+  
 
 }

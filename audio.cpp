@@ -1,39 +1,68 @@
 #include "AudioTools.h"
-#include "AudioCodecs/CodecMP3Helix.h"
+#include "AudioTools/Disk/AudioSourceSDFAT.h"
+#include "AudioTools/AudioCodecs/CodecMP3Helix.h"
 #include "audio.h"
+#include "util.h"
 
 AudioController* audioController;
 
-AudioController::AudioController() {
-	AudioLogger::instance().begin(Serial, AudioLogger::Debug);  
-	AnalogAudioStream analogStream;
-	EncodedAudioStream decoder(&analogStream, new MP3DecoderHelix());
-	StreamCopy copier(decoder, targetURL);
 
-	auto config = analogStream.defaultConfig(TX_MODE);
-	analogStream.begin(config);
-	decoder.begin();
+AudioController::AudioController() {
+  auto config = i2s.defaultConfig(TX_MODE);
+  config.i2s_format = I2S_LSB_FORMAT;
+  config.pin_bck = 32;
+  config.pin_ws = 25;
+  config.pin_data = 12;
+  i2s.begin(config);
+  source = new AudioSourceSDFAT("/gbhq", "mp3");
+  player = new AudioPlayer(*source, i2s, decoder);
+}
+
+void AudioController::loadFile(const char *filePattern) {
+	if (isPlaying) {
+		stop();
+	}
+	isLoaded = false;
+	source->end();
+	delete(source);
+	source = new AudioSourceSDFAT("/gbhq", "mp3");
+	source->setFileFilter(filePattern);
+	player->setAudioSource(*source);
+	
+	isLoaded = true;
 }
 
 
 void AudioController::loop() {
-	if (isPlaying) {
-		copier.copy();
-	}
+  if(isLoaded && isPlaying) {
+  	player->copy();
+  }
 }
 
-void AudioController::playURL(String url) {
-	targetURL.begin(url.c_str());
+void AudioController::play() {
+  if(isLoaded && !isPlaying) {
+	player->begin();
 	isPlaying = true;
+  }
 }
+
+void AudioController::stop() {
+	if(isLoaded && isPlaying) {
+		player->stop();
+	}
+	isPlaying = false;
+}
+
+
 void initAudio() {
-	audioController = new AudioController();
+  AudioLogger::instance().begin(Serial, AudioLogger::Warning);
+  audioController = new AudioController();
 }
 
 AudioController* getAudioController() {
-	return audioController;
+  return audioController;
 }
 
 void audioLoop() {
-	getAudioController()->loop();
+  getAudioController()->loop();
 }
